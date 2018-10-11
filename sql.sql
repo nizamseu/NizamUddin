@@ -373,6 +373,23 @@ FROm employees e JOIN departments d
 ON (e.department_id=d.department_id )
 AND e.manager_id =149;
 
+DESC JOBS;
+SELECT * FROM ALL_TABLES;
+
+--Using Cross JOIN
+
+SELECT last_name,department_name
+FROM Employees CROSS JOIN DEPARTMENTS;
+
+
+-- USING SUBQUERY 
+
+SELECT last_name,salary
+FROM employees
+WHERE salary >
+                (SELECT salary 
+                 FROM employees
+                 WHERE LOWER(last_name)='abel');
 
 
 
