@@ -358,6 +358,20 @@ USING (department_id)
 JOIN LOCATIONS l
 USING(location_id);
 
+-- Applying Additional Condition to a Join 
+-- Use the AND clause  or the WHERE clause to Apply additiona Conditions 
+
+SELECT employee_id ,last_name ,e.department_id,d.department_id ,d.location_id
+FROm employees e JOIN departments d 
+ON (e.department_id=d.department_id )
+WHERE e.manager_id =149;
+
+--                OR
+
+SELECT employee_id ,last_name ,e.department_id,d.department_id ,d.location_id
+FROm employees e JOIN departments d 
+ON (e.department_id=d.department_id )
+AND e.manager_id =149;
 
 
 
