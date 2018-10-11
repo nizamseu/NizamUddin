@@ -391,7 +391,68 @@ WHERE salary >
                  FROM employees
                  WHERE LOWER(last_name)='abel');
 
+--9:45 PM  10-11-2018
+-- SUbQUERY 
+-- QUESTION: Display the employee whose Job id is tje same as tha pf employees 141.
 
+SELECT last_name,job_id
+FROm employees
+WHERE job_id =
+                (SELECT job_id
+                FROm employees
+                WHERE employee_id=141);
+                
+SELECT last_name ,job_id,salary
+FROm employees
+WHERE JOB_ID =
+                (SELECT job_id                  --NOTE:: NOT WORKING 
+                FROM employees
+                WHERE last_name='Taylor')
+ AND  salary >
+                (SELECT salary 
+                FROM  Employees
+                WHERE last_name='Taylor');
 
+---using Group Function in a Query
+SELECT last_name,job_id,salary
+FROm employees
+WHERE salary=
+            (SELECT MIN(salary)
+            FROM employees);
+            
 
+SELECT last_name,job_id
+FROM EMPLOYEES
+WHERE job_id=
+            (SELECT JOB_ID 
+            FROM employees
+            WHERE last_name='Nizam');
+            
+-- Using the "ANY" Operator in MUltiple ROW subQUERY   
 
+SELECT employee_id,last_name,job_id,salary
+FROM employees
+WHERE salary <ANY
+                (SELECT salary
+                FROM employees
+                WHERE job_id ='IT_PFROG')
+AND job_id <> 'IT_PROG';
+
+-- Using the "ALL" Operator in MUltiple ROW subQUERY 
+
+SELECT employee_id,last_name,job_id,salary
+FROM employees
+WHERE salary <All
+                (SELECT salary
+                FROM employees
+                WHERE job_id ='IT_PFROG')
+AND job_id <> 'IT_PROG';
+
+-- Using the "EXISTS" Operator 
+SELECT * 
+FROM departments
+WHERE NOT EXISTS
+            (SELECT *
+            FROM employees
+            WHERE employees.department_id=departments.department_id);
+            
