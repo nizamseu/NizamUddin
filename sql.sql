@@ -350,6 +350,14 @@ ON (e.department_id =d.department_id)
 JOIN locations l
 ON (d.location_id= l.location_id);
 
+-- Join tree table using "Using" clause
+
+SELECT employee_id,city ,department_name
+FROM EMPLOYEES e JOIN DEPARTMENTS d
+USING (department_id)
+JOIN LOCATIONS l
+USING(location_id);
+
 
 
 
