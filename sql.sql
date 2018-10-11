@@ -318,5 +318,4 @@ SELECT * from dba_users;
 SELECT * FROM INFORMATION_SCHEMA.TABLES;
 select * from sys.tables;
 --------------------------------------------
-
-
+ --i am going to added my git account
