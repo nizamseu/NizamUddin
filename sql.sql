@@ -323,3 +323,30 @@ select * from sys.tables;
  SELECT * 
  FROM employees JOIN JOBS
  USING (job_id);
+
+--10-11-2018
+
+SELECT l.city ,d.department_name
+FROM locations l JOIN departments d
+USING (location_id)
+where location_id =1400;
+
+SELECT first_name,d.department_name,d.manager_id
+FROM employees e JOIN departments d
+USING (department_id)
+WHERE department_id=110;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
