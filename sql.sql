@@ -336,13 +336,19 @@ FROM employees e JOIN departments d
 USING (department_id)
 WHERE department_id=110;
 
+-- Using Joi by ON clause 
 
+SELECT e.employee_id,e.last_name,e.department_id,d.department_id,d.location_id
+FROm employees e JOIN departments d
+ON (e.department_id= d.department_id);
 
+-- Join tree table using ON clause 
 
-
-
-
-
+SELECT employee_id ,last_name,city ,department_name
+FROM employees e JOIN departments d
+ON (e.department_id =d.department_id)
+JOIN locations l
+ON (d.location_id= l.location_id);
 
 
 
